@@ -2,19 +2,19 @@
 install.packages("ChocoLattes",dependencies = T)
 library(ChocoLattes)
 
-# Defina seu diretório de trabalho (onde serão importados e exportados arquivos)
-setwd('C:/Users/endereço')
+# Defina seu diretÃ³rio de trabalho (onde serÃ£o importados e exportados arquivos)
+setwd('C:/Users/endereÃ§o')
 
-# Faça uma lista das formas de citação na produção
-my.aliases <- list(c("Zé da Silva","Maria do Bairro"))
+# FaÃ§a uma lista das formas de citaÃ§Ã£o na produÃ§Ã£o
+my.aliases <- list(c("ZÃ© da Silva","Maria do Bairro"))
 
-# Defina o diretório onde estão os currículos salvos em XML
-# Sugestão: crie uma pasta na pasta do pacote Chollattes com os currículos e use a função abaixo
+# Defina o diretÃ³rio onde estÃ£o os currÃ­culos salvos em XML
+# SugestÃ£o: crie uma pasta na pasta do pacote Chollattes com os currÃ­culos e use a funÃ§Ã£o abaixo
 my.dir <- system.file("nome da pasta", package="ChocoLattes")
 # ou use
-my.dir <- 'endereço da pasta'
+my.dir <- 'endereÃ§o da pasta'
 
-# Crie uma lista da produção 
+# Crie uma lista da produÃ§Ã£o 
 lattes.list <- lattes_to_list(CV.dir = my.dir,
                               author.aliases = my.aliases)
 
@@ -24,30 +24,30 @@ y <-plot_chart(lattes.list, chart.type = c("ggplot2", "plotly", "rCharts"),
                  "conference.international", "conference.national", "book.chapters", "books",
                 "phd.theses", "msc.theses"))
 
-# Visualize o gráfico de produções 
+# Visualize o grÃ¡fico de produÃ§Ãµes 
 print(y)
 
-# Crie a página de produção em HTML
+# Crie a pÃ¡gina de produÃ§Ã£o em HTML
 make_productions_page(lattes.list = lattes.list, 
                       chart.type  = "ggplot2", 
-                      h1.title    = "PPG Psicologia", 
-                      h2.title    = "PUCRS",
+                      h1.title    = "PPG", 
+                      h2.title    = "Universidade",
                       language    = c("EN","PT"),
                       which.fields = c("journal.accepted", "journal.published",
                                        "conference.international", "conference.national", "book.chapters", "books",
                                        "phd.theses", "msc.theses"))
 
-# Avaliar a produção por estrato Qualis e por ano
-# Faça o download da classificação Qualis, selecionando apenas os campos
-# Evento de Classificação e Área de Avaliação
+# Avaliar a produÃ§Ã£o por estrato Qualis e por ano
+# FaÃ§a o download da classificaÃ§Ã£o Qualis, selecionando apenas os campos
+# Evento de ClassificaÃ§Ã£o e Ãrea de AvaliaÃ§Ã£o
 # (https://sucupira.capes.gov.br/sucupira/public/consultas/coleta/veiculoPublicacaoQualis/listaConsultaGeralPeriodicos.jsf) 
-# Depois copie e cole o conteúdo em uma planilha do Google Sheets e salve em formato ".csv"
+# Depois copie e cole o conteÃºdo em uma planilha do Google Sheets e salve em formato ".csv"
 # (https://docs.google.com/spreadsheets/u/0/) 
 
-# Informe onde está a planilha do Qualis
+# Informe onde estÃ¡ a planilha do Qualis
 qualis.file.pg<-"C:/Users/.../Untitled spreadsheet - Sheet1.csv"
 
-# Gere os gráficos de produção por estrato para os anos selecionados
+# Gere os grÃ¡ficos de produÃ§Ã£o por estrato para os anos selecionados
 extract_qualis(lattes.list, years=list(2018), qualis.file.pg, isComputerScience = FALSE,
                output.file = c("csv", "xlsx"), plotQualis = TRUE,
                qualis.extract = NULL, plot.width = 16, plot.height = 8,
