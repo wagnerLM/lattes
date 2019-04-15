@@ -3,16 +3,16 @@ install.packages("ChocoLattes",dependencies = T)
 library(ChocoLattes)
 
 # Defina seu diretório de trabalho (onde serão importados e exportados arquivos)
-setwd('C:/Users/endereço')
+setwd('C:/Users/...')
 
 # Faça uma lista das formas de citação na produção
-my.aliases <- list(c("Zé da Silva","Maria do Bairro"))
+my.aliases <- list(c("Zé da Silva","Silva, Z"))
 
-# Defina o diretório onde estão os currículos salvos em XML
+# Defina o diretório onde estão os currículos salvos em XML (esta opção está disponível no Lattes)
 # Sugestão: crie uma pasta na pasta do pacote Chollattes com os currículos e use a função abaixo
 my.dir <- system.file("nome da pasta", package="ChocoLattes")
 # ou use
-my.dir <- 'endereço da pasta'
+my.dir <- 'C:/Users/...'
 
 # Crie uma lista da produção 
 lattes.list <- lattes_to_list(CV.dir = my.dir,
@@ -44,11 +44,11 @@ make_productions_page(lattes.list = lattes.list,
 # Depois copie e cole o conteúdo em uma planilha do Google Sheets e salve em formato ".csv"
 # (https://docs.google.com/spreadsheets/u/0/) 
 
-# Informe onde está a planilha do Qualis
+# Informe a localização da planilha do Qualis
 qualis.file.pg<-"C:/Users/.../Untitled spreadsheet - Sheet1.csv"
 
 # Gere os gráficos de produção por estrato para os anos selecionados
-extract_qualis(lattes.list, years=list(2018), qualis.file.pg, isComputerScience = FALSE,
+extract_qualis(lattes.list, years=list(2018,2019), qualis.file.pg, isComputerScience = FALSE,
                output.file = c("csv", "xlsx"), plotQualis = TRUE,
                qualis.extract = NULL, plot.width = 16, plot.height = 8,
                plot.units = "in", plot.res = 300, plot.text.size = 18)
